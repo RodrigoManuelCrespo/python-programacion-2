@@ -17,10 +17,8 @@ class Miembros:
     def __init__(self, nombre, dni):
         if nombre == "" or dni == "":
             raise ValueError("Nombre y DNI no pueden estar vacíos")
-        if not dni.isdigit():
-            raise ValueError("DNI debe contener solo números")
-        if len(dni) < 8:
-            raise ValueError("DNI debe tener al menos 7 caracteres")
+        if len(dni) < 8 or not dni.isdigit():
+            raise ValueError("DNI debe tener 8 digitos numericos")
         if not nombre.replace(" ", "").isalpha():
             raise ValueError("Nombre debe contener solo letras")
         self.nombre = nombre
@@ -103,7 +101,7 @@ class Biblioteca:
             if len(self.libros) == 0:
                 print("No hay libros cargados")
             else:
-                print(f"\n******\nListado de libros:\n******")
+                print(f"\n******\nEstado de libros:\n******")
                 for libro in self.libros:
                     if libro.disponibilidad:
                         print(f"Titulo: {libro.titulo} | Estado: Disponible")
@@ -114,7 +112,7 @@ class Biblioteca:
             if len(self.miembros) == 0:
                 print("No hay miembros registrados")
                 return
-            print(f"\n******\nListado de miembros:\n******")
+            print(f"\n******\nEstado de miembros:\n******")
             for miembro in self.miembros:
                 print(f"\nMiembro: {miembro.nombre} | DNI: {miembro.dni}")
                 self.buscarLibrosPorMiembro(miembro.dni)

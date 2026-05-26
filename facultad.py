@@ -100,7 +100,7 @@ class Facultad:
         if len(self.cursos) == 0:
             print("No hay cursos registrados")
             return
-        print(f"\n******\nListado de cursos:\n******")
+        print(f"\n******\nEstado de cursos:\n******")
         for curso in self.cursos:
             cantidadInscriptos = len(curso.estudiantesInscriptos)
             cuposDisponibles = curso.capacidadMaxima - cantidadInscriptos
@@ -122,7 +122,7 @@ class Facultad:
         if len(self.estudiantes) == 0:
             print("No hay estudiantes registrados")
             return
-        print(f"\n******\nListado de estudiantes:\n******")
+        print(f"\n******\nEstado de estudiantes:\n******")
         for estudiante in self.estudiantes:
             print(f"\nEstudiante: {estudiante.nombre} {estudiante.apellido} | Matrícula: {estudiante.matricula} | Carrera: {estudiante.carrera}")
             self.buscarCursosPorEstudiante(estudiante.matricula)
